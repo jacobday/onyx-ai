@@ -71,7 +71,7 @@ const Sidebar = () => {
         <Link href="/dashboard" className="flex items-center pl-3 mb-14">
           {/* Onyx Logo */}
           <div className="relative w-8 h-8 mr-4">
-            <Image fill alt="logo" src="/logo.png" />
+            <Image fill alt="logo" src="/logo.svg" />
           </div>
 
           {/* Heading */}

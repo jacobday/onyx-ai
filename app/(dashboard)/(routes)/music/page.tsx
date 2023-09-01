@@ -99,7 +99,7 @@ const MusicPage = () => {
           {/* Loading music */}
           {isLoading && (
             <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
-              <Loader />
+              <Loader caption="Hang tight, this might take a minute..." />
             </div>
           )}
 

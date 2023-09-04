@@ -18,6 +18,7 @@ import { Button } from "./ui/button";
 import axios from "axios";
 import { useState } from "react";
 import router from "next/router";
+import toast from "react-hot-toast";
 
 export const ProModal = () => {
   const [loading, setLoading] = useState(false);
@@ -32,6 +33,7 @@ export const ProModal = () => {
       // router.push(response.data.url);
     } catch (error) {
       console.log("STRIPE_CLIENT_ERROR", error);
+      toast.error("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }

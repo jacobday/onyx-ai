@@ -10,9 +10,10 @@ import { useProModal } from "@/hooks/use-pro-modal";
 
 interface CreditCounterProps {
   apiLimitCount: number;
+  isPro: boolean;
 }
 
-export const CreditCounter = ({ apiLimitCount }: CreditCounterProps) => {
+export const CreditCounter = ({ apiLimitCount, isPro }: CreditCounterProps) => {
   const proModal = useProModal();
   const [mounted, setMounted] = useState(false);
 
@@ -21,6 +22,8 @@ export const CreditCounter = ({ apiLimitCount }: CreditCounterProps) => {
   }, []);
 
   if (!mounted) return null;
+
+  if (isPro) return null;
 
   return (
     <div className="px-3">

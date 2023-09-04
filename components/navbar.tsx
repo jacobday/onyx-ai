@@ -7,12 +7,13 @@ import { getApiLimitCount } from "@/lib/api-limit";
 
 interface NavbarProps {
   apiLimitCount: number;
+  isPro: boolean;
 }
 
-const Navbar = ({ apiLimitCount }: NavbarProps) => {
+const Navbar = ({ apiLimitCount, isPro }: NavbarProps) => {
   return (
     <div className="flex items-center p-4">
-      <MobileSidebar apiLimitCount={apiLimitCount} />
+      <MobileSidebar isPro={isPro} apiLimitCount={apiLimitCount} />
 
       <div className="flex w-full justify-end">
         <UserButton afterSignOutUrl="/" />

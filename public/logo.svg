@@ -1,15 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Flat_Gradient" data-name="Flat Gradient" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: url(#linear-gradient);
-      }
-    </style>
-    <linearGradient id="linear-gradient" x1="7" y1="32" x2="57" y2="32" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#7f00ff"/>
-      <stop offset="1" stop-color="#e100ff"/>
-    </linearGradient>
-  </defs>
-  <path class="cls-1" d="m18.89941,33.03998l8.46455,22.35999L7,33h11.88918c0,.01001.01023.02997.01023.03998Zm-.01023-2.04999l8.48495-22.40002L7.01023,31h11.87895v-.01001Zm26.23187,2.02002l-8.47478,22.38995,20.35373-22.39996c-.00003.01004-11.89937-.01922-11.87895.01001Zm0-2.01001h11.87895l-20.35373-22.39001,8.46455,22.34998c0,.01001.01023.03003.01023.04004Zm-2.17747,0l-9.97751-26.35004c-.15337-.38995-.53161-.64996-.96095-.64996s-.80758.26001-.96095.64996l-9.97751,26.35004h21.87693Zm-21.87693,2l9.97751,26.34998c.15337.39001.53161.65002.96095.65002s.80758-.26001.96095-.65002l9.97751-26.34998h-21.87693Z"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Flat_Gradient" data-name="Flat Gradient" viewBox="0 0 64 64"><defs><style>.cls-1{fill:url(#linear-gradient)}</style><linearGradient id="linear-gradient" x1="7" x2="57" y1="32" y2="32" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#7f00ff"/><stop offset="1" stop-color="#e100ff"/></linearGradient></defs><path d="m18.89941,33.03998l8.46455,22.35999L7,33h11.88918c0,.01001.01023.02997.01023.03998Zm-.01023-2.04999l8.48495-22.40002L7.01023,31h11.87895v-.01001Zm26.23187,2.02002l-8.47478,22.38995,20.35373-22.39996c-.00003.01004-11.89937-.01922-11.87895.01001Zm0-2.01001h11.87895l-20.35373-22.39001,8.46455,22.34998c0,.01001.01023.03003.01023.04004Zm-2.17747,0l-9.97751-26.35004c-.15337-.38995-.53161-.64996-.96095-.64996s-.80758.26001-.96095.64996l-9.97751,26.35004h21.87693Zm-21.87693,2l9.97751,26.34998c.15337.39001.53161.65002.96095.65002s.80758-.26001.96095-.65002l9.97751-26.34998h-21.87693Z" class="cls-1"/></svg>

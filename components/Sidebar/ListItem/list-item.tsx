@@ -23,10 +23,13 @@ const ListItem = ({ tool, isFavorite }: ListItemProps) => {
   const router = useRouter();
   const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(false);
+  const [isFavoriteState, setIsFavoriteState] = useState(isFavorite);
 
   const onSubmit = async () => {
     try {
       setIsLoading(true);
+      setIsFavoriteState(!isFavoriteState);
+
       await axios.post("/api/favorites", { favorite: tool.href });
     } catch (error: any) {
       console.log(error);
@@ -60,8 +63,8 @@ const ListItem = ({ tool, isFavorite }: ListItemProps) => {
         onClick={() => {
           if (!isLoading) onSubmit();
         }}
-        fill={isFavorite ? "#efa561" : "none"}
-        stroke={isFavorite ? "transparent" : "#e8eaf2"}
+        fill={isFavorite || isFavoriteState ? "#efa561" : "none"}
+        stroke={isFavorite || isFavoriteState ? "transparent" : "#e8eaf2"}
         strokeWidth={1.75}
       />
     </button>

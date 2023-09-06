@@ -34,7 +34,7 @@ export async function POST(req: Request) {
         input: {
           prompt_a: prompt,
         },
-      }
+      },
     );
 
     if (!isPro) {

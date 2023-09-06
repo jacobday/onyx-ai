@@ -1,0 +1,100 @@
+@use "sass:map";
+@import "@/styles/variables";
+
+$padding: 0.5em;
+
+$border-width: 1px;
+$border-color: #e8eaf2;
+
+// Sidebar styling
+.sidebar {
+  height: 100%;
+  width: 18rem;
+
+  background-color: map-get($map: $bg-variants, $key: "secondary");
+
+  padding: $padding;
+
+  display: none;
+}
+
+// Navigation tab styling
+.sidebar {
+  .nav {
+    color: white;
+    font-size: 0.9em;
+    font-weight: 600;
+
+    background-color: map-get($map: $bg-variants, $key: "primary");
+
+    border: $border-width solid $border-color;
+    border-bottom: none;
+    border-radius: map-get($map: $border-radius, $key: "inner")
+      map-get($map: $border-radius, $key: "inner") 0px 0px;
+
+    .container {
+      background-color: map-get($map: $theme-colors, $key: "primary");
+
+      border: none;
+      border-radius: map-get($map: $border-radius, $key: "inner");
+      padding: $padding;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      gap: 0.25em;
+
+      button {
+        border-radius: map-get($map: $border-radius, $key: "inner");
+        padding: $padding;
+
+        flex-grow: 1;
+
+        transition: all 0.2s ease-in-out;
+      }
+
+      [aria-current="page"] {
+        color: black;
+        background-color: white;
+      }
+
+      button:hover {
+        color: black;
+        background-color: white;
+      }
+    }
+  }
+}
+
+// Tool list styling
+.sidebar {
+  .list {
+    background-color: map-get($map: $bg-variants, $key: "primary");
+
+    border: $border-width solid $border-color;
+    border-top: none;
+    border-radius: 0px 0px map-get($map: $border-radius, $key: "inner")
+      map-get($map: $border-radius, $key: "inner");
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    overflow: hidden;
+
+    .empty {
+      padding: $padding;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+  }
+}

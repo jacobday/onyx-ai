@@ -2,6 +2,8 @@ import { Code, ImageIcon, MessageSquare, Music, VideoIcon } from "lucide-react";
 
 export const MAX_FREE_CREDITS = 5;
 
+const TOOLS_PREFIX = "/tools";
+
 export const tools = [
   {
     label: "Conversation",
@@ -9,7 +11,7 @@ export const tools = [
     icon: MessageSquare,
     color: "text-violet-500",
     bgColor: "bg-violet-500/10",
-    href: "/conversation",
+    href: `${TOOLS_PREFIX}/conversation`,
   },
   {
     label: "Image Generation",
@@ -17,7 +19,7 @@ export const tools = [
     icon: ImageIcon,
     color: "text-pink-700",
     bgColor: "bg-pink-700/10",
-    href: "/image",
+    href: `${TOOLS_PREFIX}/image`,
   },
   {
     label: "Video Generation",
@@ -25,7 +27,7 @@ export const tools = [
     icon: VideoIcon,
     color: "text-orange-700",
     bgColor: "bg-orange-700/10",
-    href: "/video",
+    href: `${TOOLS_PREFIX}/video`,
   },
   {
     label: "Music Generation",
@@ -33,7 +35,7 @@ export const tools = [
     icon: Music,
     color: "text-emerald-500",
     bgColor: "bg-emerald-500/10",
-    href: "/music",
+    href: `${TOOLS_PREFIX}/music`,
   },
   {
     label: "Code Generation",
@@ -41,6 +43,6 @@ export const tools = [
     icon: Code,
     color: "text-green-700",
     bgColor: "bg-green-700/10",
-    href: "/code",
+    href: `${TOOLS_PREFIX}/code`,
   },
 ];

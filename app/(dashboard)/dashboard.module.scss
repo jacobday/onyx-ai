@@ -1,0 +1,9 @@
+@use "sass:map";
+@import "@/styles/variables";
+
+.dashboard {
+  height: 100%;
+  background-color: map-get($map: $bg-variants, $key: "primary");
+
+  position: relative;
+}

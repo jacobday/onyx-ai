@@ -1,0 +1,100 @@
+@use "sass:map";
+@import "@/styles/variables";
+
+.taskbar {
+  display: none;
+
+  nav[aria-label="task"] {
+    height: 100%;
+    width: 4rem;
+
+    background-color: map-get($map: $theme-colors, $key: "primary");
+
+    padding: map-get($map: $spacing, $key: "sm");
+
+    // Onyx logo
+    .logo {
+      // height: 10px;
+      aspect-ratio: 1/1;
+
+      margin-top: map-get($map: $spacing, $key: "sm");
+      padding: map-get($map: $spacing, $key: "sm");
+
+      display: block;
+
+      position: relative;
+    }
+
+    // Taskbar tabs
+    .container {
+      height: 100%;
+      color: white;
+
+      margin-top: 3em;
+
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      gap: 1em;
+
+      button {
+        width: 100%;
+        aspect-ratio: 1/1;
+
+        padding: map-get($map: $spacing, $key: "sm");
+
+        position: relative;
+
+        transition: map-get($map: $transition, $key: "default");
+
+        &::before {
+          content: "";
+          width: 150%;
+          background-color: transparent;
+
+          // padding: map-get($map: $spacing, $key: "sm");
+          border-radius: 0px map-get($map: $border-radius, $key: "outer")
+            map-get($map: $border-radius, $key: "outer") 0px;
+
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: -50%;
+          z-index: 10;
+
+          transition: map-get($map: $transition, $key: "default");
+        }
+
+        svg {
+          height: 100%;
+          width: 100%;
+
+          position: relative;
+          z-index: 20;
+        }
+
+        &[aria-current="location"],
+        &:hover {
+          color: map-get($map: $theme-colors, $key: "primary");
+
+          &::before {
+            background-color: white;
+            box-shadow: map-get($map: $shadow, $key: "tab");
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .taskbar {
+    display: flex;
+    flex-direction: row;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+  }
+}

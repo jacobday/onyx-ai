@@ -8,7 +8,7 @@ import { tools } from "@/constants";
 
 import { ArrowRight } from "lucide-react";
 
-const DashboardPage = () => {
+const ToolsPage = () => {
   const router = useRouter();
 
   return (
@@ -49,4 +49,4 @@ const DashboardPage = () => {
   );
 };
 
-export default DashboardPage;
+export default ToolsPage;

@@ -21,6 +21,7 @@ $border-color: #e8eaf2;
   gap: 1em;
 
   position: relative;
+  overflow: hidden;
 
   &:hover,
   &[aria-current="page"] {
@@ -45,10 +46,6 @@ $border-color: #e8eaf2;
     &::after {
       left: -2px;
     }
-  }
-
-  &:last-of-type {
-    border-bottom: none;
   }
 
   .icon {

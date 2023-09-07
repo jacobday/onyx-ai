@@ -14,7 +14,24 @@ $border-radius: (
   "inner": 10px,
 );
 
+// Spacing
+$spacing: (
+  "sm": 0.5em,
+);
+
 // Transitions
 $transition: (
   "default": all 0.2s ease-in-out,
+);
+
+// Shadows
+$shadow: (
+  "default": 0px 0px 12px rgba(0, 0, 0, 0.075),
+  "tab": 8px 0px 12px rgba(0, 0, 0, 0.1),
+);
+
+// Component widths
+$width: (
+  "listview": 18rem,
+  "taskbar": 4em,
 );

@@ -1,25 +1,27 @@
 @use "sass:map";
 @import "@/styles/variables";
 
-$padding: 0.5em;
-
 $border-width: 1px;
 $border-color: #e8eaf2;
 
-// Sidebar styling
-.sidebar {
-  height: 100%;
+// List View styling
+.listview {
   width: 18rem;
 
   background-color: map-get($map: $bg-variants, $key: "secondary");
+  box-shadow: map-get($map: $shadow, $key: "default");
 
-  padding: $padding;
+  border-radius: map-get($map: $border-radius, $key: "outer");
+
+  padding: map-get($map: $spacing, $key: "sm");
+  margin: map-get($map: $spacing, $key: "sm");
 
   display: none;
+  overflow-y: scroll;
 }
 
 // Navigation tab styling
-.sidebar {
+.listview {
   .nav {
     color: white;
     font-size: 0.9em;
@@ -37,7 +39,7 @@ $border-color: #e8eaf2;
 
       border: none;
       border-radius: map-get($map: $border-radius, $key: "inner");
-      padding: $padding;
+      padding: map-get($map: $spacing, $key: "sm");
 
       display: flex;
       flex-direction: row;
@@ -46,7 +48,7 @@ $border-color: #e8eaf2;
 
       button {
         border-radius: map-get($map: $border-radius, $key: "inner");
-        padding: $padding;
+        padding: map-get($map: $spacing, $key: "sm");
 
         flex-grow: 1;
 
@@ -67,8 +69,9 @@ $border-color: #e8eaf2;
 }
 
 // Tool list styling
-.sidebar {
+.listview {
   .list {
+    height: 100%;
     background-color: map-get($map: $bg-variants, $key: "primary");
 
     border: $border-width solid $border-color;
@@ -80,16 +83,14 @@ $border-color: #e8eaf2;
     flex-direction: column;
     align-items: flex-start;
 
-    overflow: hidden;
-
     .empty {
-      padding: $padding;
+      padding: map-get($map: $spacing, $key: "sm");
     }
   }
 }
 
 @media (min-width: 768px) {
-  .sidebar {
+  .listview {
     display: flex;
     flex-direction: column;
 

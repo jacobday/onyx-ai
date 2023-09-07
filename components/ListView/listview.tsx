@@ -1,14 +1,9 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-
-import styles from "./sidebar.module.scss";
+import styles from "./listview.module.scss";
 import { tools } from "@/constants";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
-import { StarIcon } from "lucide-react";
 import ListItem from "./ListItem/list-item";
-import { getFavorites } from "@/lib/favorites";
 
 const navItems = [
   {
@@ -23,21 +18,17 @@ const navItems = [
   },
 ];
 
-interface NewSidebarProps {
+interface ListViewProps {
   isPro: boolean;
   apiLimitCount: number;
   favoriteTools: string[];
 }
 
-const NewSidebar = ({
-  isPro,
-  apiLimitCount,
-  favoriteTools,
-}: NewSidebarProps) => {
+const ListView = ({ isPro, apiLimitCount, favoriteTools }: ListViewProps) => {
   const [activeNav, setActiveNav] = useState("/all");
 
   return (
-    <aside className={styles.sidebar}>
+    <aside className={styles.listview}>
       {/* Navigation */}
       <nav className={styles.nav} aria-label="tabs">
         {/* Nav Tabs */}
@@ -84,4 +75,4 @@ const NewSidebar = ({
   );
 };
 
-export default NewSidebar;
+export default ListView;

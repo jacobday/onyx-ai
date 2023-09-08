@@ -1,12 +1,31 @@
 @use "sass:map";
 @import "@/styles/variables";
 
+.listview,
+.taskbar {
+  display: none;
+}
+
 @media (min-width: 768px) {
   .tools {
-    padding-left: map-get($map: $width, $key: "taskbar");
-  
     .content {
-      padding-left: calc( map-get($map: $width, $key: "listview") + map-get($map: $spacing, $key: "sm") );
+      padding-left: calc(
+        map-get($map: $width, $key: "listview") +
+          map-get($map: $spacing, $key: "sm")
+      );
+    }
+
+    .listview {
+      display: block;
+      padding-left: map-get($map: $width, $key: "taskbar");
+    }
+
+    .navbar {
+      padding-left: map-get($map: $width, $key: "taskbar");
+    }
+
+    .taskbar {
+      display: block;
     }
   }
 }

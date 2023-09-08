@@ -17,7 +17,6 @@ import { Check, Zap } from "lucide-react";
 import { Button } from "./ui/button";
 import axios from "axios";
 import { useState } from "react";
-import router from "next/router";
 import toast from "react-hot-toast";
 
 export const ProModal = () => {
@@ -30,7 +29,6 @@ export const ProModal = () => {
       const response = await axios.get("/api/stripe");
 
       window.location.href = response.data.url;
-      // router.push(response.data.url);
     } catch (error) {
       console.log("STRIPE_CLIENT_ERROR", error);
       toast.error("Something went wrong. Please try again.");

@@ -13,7 +13,14 @@
   padding: map-get($map: $spacing, $key: "sm");
   margin: map-get($map: $spacing, $key: "sm");
 
-  display: none;
+  // display: none;
+  display: flex;
+  flex-direction: column;
+
+  position: fixed;
+  top: 2.5em;
+  bottom: 0;
+
   overflow-y: scroll;
 }
 
@@ -88,11 +95,11 @@
 
 @media (min-width: 768px) {
   .listview {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
 
-    position: fixed;
+    // position: fixed;
     top: 0;
-    bottom: 0;
+    // bottom: 0;
   }
 }

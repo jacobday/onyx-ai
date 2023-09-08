@@ -4,7 +4,7 @@
 .form {
   // width: 100%;
 
-background-color: map-get($map: $bg-variants, $key: "primary");
+  background-color: map-get($map: $bg-variants, $key: "primary");
 
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -29,9 +29,7 @@ background-color: map-get($map: $bg-variants, $key: "primary");
     text-overflow: ellipsis;
 
     &:focus-visible {
-    box-shadow: none;
-  }
-
-  
+      box-shadow: none;
+    }
   }
 }

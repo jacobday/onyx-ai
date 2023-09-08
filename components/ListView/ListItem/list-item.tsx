@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
 import axios from "axios";
 import { useState } from "react";
+import { useMobileSidebar } from "@/hooks/use-mobile-sidebar";
 
 interface ListItemProps {
   tool: {
@@ -22,6 +23,7 @@ interface ListItemProps {
 const ListItem = ({ tool, isFavorite }: ListItemProps) => {
   const router = useRouter();
   const pathname = usePathname();
+  const mobileSidebar = useMobileSidebar();
   const [isLoading, setIsLoading] = useState(false);
   const [isFavoriteState, setIsFavoriteState] = useState(isFavorite);
 
@@ -42,7 +44,10 @@ const ListItem = ({ tool, isFavorite }: ListItemProps) => {
   return (
     <button
       key={tool.href}
-      onClick={() => router.push(tool.href)}
+      onClick={() => {
+        router.push(tool.href);
+        mobileSidebar.onClose();
+      }}
       className={styles.tool}
       aria-current={pathname === tool.href ? "page" : undefined}
     >

@@ -2,22 +2,32 @@
 
 import { UserButton } from "@clerk/clerk-react";
 
-import MobileSidebar from "../mobile-sidebar";
+import MobileSidebar from "../MobileSidebar/mobile-sidebar";
 import { getApiLimitCount } from "@/lib/api-limit";
 import styles from "./navbar.module.scss";
 import { CreditCounter } from "../CreditCounter/credit-counter";
+import { useMobileSidebar } from "@/hooks/use-mobile-sidebar";
+import { Button } from "../ui/button";
+import { Menu } from "lucide-react";
 
 interface NavbarProps {
   apiLimitCount: number;
   isPro: boolean;
+  favoriteTools: string[];
 }
 
-const Navbar = ({ apiLimitCount, isPro }: NavbarProps) => {
+const Navbar = ({ apiLimitCount, isPro, favoriteTools }: NavbarProps) => {
+  const mobileSidebar = useMobileSidebar();
+
   return (
     <nav className={styles.navbar}>
       {/* Mobile Hamburger Menu */}
       <div className="md:hidden">
-        <MobileSidebar isPro={isPro} apiLimitCount={apiLimitCount} />
+        {/* <button onClick={() => mobileSidebar.onOpen()}>
+          <Menu />
+        </button> */}
+
+        <MobileSidebar isPro={isPro} favoriteTools={favoriteTools} />
       </div>
 
       {/* Free Trial Credit Counter */}

@@ -109,7 +109,7 @@ const CodePage = () => {
                   "p-8 w-full items-start gap-x-8 rounded-lg",
                   message.role === "user"
                     ? "bg-white border border-black/10"
-                    : "bg-muted"
+                    : "bg-muted",
                 )}
               >
                 {/* Message sender & content */}

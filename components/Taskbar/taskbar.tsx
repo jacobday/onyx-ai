@@ -26,11 +26,9 @@ const navItems = [
 
 interface TaskBarProps {
   isPro: boolean;
-  apiLimitCount: number;
-  favoriteTools: string[];
 }
 
-const TaskBar = ({ isPro, apiLimitCount, favoriteTools }: TaskBarProps) => {
+const TaskBar = ({ isPro }: TaskBarProps) => {
   const router = useRouter();
   const pathname = usePathname();
   const [activeTab, setActiveTab] = useState("/tools");
@@ -57,24 +55,8 @@ const TaskBar = ({ isPro, apiLimitCount, favoriteTools }: TaskBarProps) => {
               <item.icon strokeWidth={2.75} />
             </button>
           ))}
-
-          {/* Settings Button */}
-          {/* <button
-            className={styles.settings}
-            aria-current={pathname === "/settings" ? "location" : undefined}
-            onClick={() => router.push("/settings")}
-          >
-            <Settings strokeWidth={2} />
-          </button> */}
         </div>
       </nav>
-
-      {/* Selected List View */}
-      {/* <ListView
-        isPro={isPro}
-        apiLimitCount={apiLimitCount}
-        favoriteTools={favoriteTools}
-      /> */}
     </div>
   );
 };

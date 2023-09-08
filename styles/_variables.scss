@@ -45,5 +45,11 @@ $height: (
 
 // Gradients
 $gradient: (
-  "premium": linear-gradient(to right, rgb(99, 102, 241), rgb(168, 85, 247), rgb(236, 72, 153)),
+  "premium":
+    linear-gradient(
+      to right,
+      rgb(99, 102, 241),
+      rgb(168, 85, 247),
+      rgb(236, 72, 153)
+    ),
 );

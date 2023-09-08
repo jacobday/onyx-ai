@@ -9,20 +9,20 @@
 
   border-radius: map-get($map: $border-radius, $key: "outer");
   box-shadow: map-get($map: $shadow, $key: "default");
-  
+
   overflow-y: scroll;
-  
+
   position: fixed;
   top: map-get($map: $height, $key: "navbar");
   right: 0;
   bottom: 0;
   left: 0;
-  
+
   .content {
     height: 100%;
 
     border-radius: map-get($map: $border-radius, $key: "outer");
-    
+
     overflow: hidden;
   }
 }
@@ -30,6 +30,10 @@
 @media (min-width: 768px) {
   .container {
     // top: 0;
-    left: calc( map-get($map: $width, $key: "taskbar") + map-get($map: $width, $key: "listview") + map-get($map: $spacing, $key: "sm") );
+    left: calc(
+      map-get($map: $width, $key: "taskbar") +
+        map-get($map: $width, $key: "listview") +
+        map-get($map: $spacing, $key: "sm")
+    );
   }
 }

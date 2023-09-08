@@ -19,12 +19,10 @@ const navItems = [
 ];
 
 interface ListViewProps {
-  isPro: boolean;
-  apiLimitCount: number;
   favoriteTools: string[];
 }
 
-const ListView = ({ isPro, apiLimitCount, favoriteTools }: ListViewProps) => {
+const ListView = ({ favoriteTools }: ListViewProps) => {
   const [activeNav, setActiveNav] = useState("/all");
 
   return (

@@ -65,7 +65,7 @@ const ListView = ({ favoriteTools }: ListViewProps) => {
               ))
           ) : (
             <p className={styles.empty}>
-              You don't have any favorite tools yet.
+              You don&apos;t have any favorite tools yet.
             </p>
           ))}
       </div>

@@ -1,4 +1,4 @@
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/Navbar/navbar";
 import { getApiLimitCount } from "@/lib/api-limit";
 import { checkSubscription } from "@/lib/subscription";
 import { getFavorites } from "@/lib/favorites";
@@ -13,14 +13,19 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className={styles.dashboard}>
-      {/* Sidebar */}
+      {/* Side Navigation Bar */}
       <TaskBar
         isPro={isPro}
         apiLimitCount={apiLimitCount}
         favoriteTools={favoriteTools}
       />
 
-      <Navbar isPro={isPro} apiLimitCount={apiLimitCount} />
+      {/* Account Management Bar */}
+      {/* <div className="md:hidden"> */}
+      {/* <Navbar isPro={isPro} apiLimitCount={apiLimitCount} /> */}
+      {/* </div> */}
+
+      {/* Main Content */}
       {children}
     </div>
   );

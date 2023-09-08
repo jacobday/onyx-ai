@@ -8,11 +8,14 @@ $bg-variants: (
   "secondary": #fff,
 );
 
-// Border radii
+// Borders
 $border-radius: (
   "outer": 20px,
   "inner": 10px,
 );
+
+$border-color: #e8eaf2;
+$border-width: 1px;
 
 // Spacing
 $spacing: (
@@ -30,8 +33,17 @@ $shadow: (
   "tab": 8px 0px 12px rgba(0, 0, 0, 0.1),
 );
 
-// Component widths
+// Component sizes
 $width: (
   "listview": 18rem,
   "taskbar": 4em,
+);
+
+$height: (
+  "navbar": 4rem,
+);
+
+// Gradients
+$gradient: (
+  "premium": linear-gradient(to right, rgb(99, 102, 241), rgb(168, 85, 247), rgb(236, 72, 153)),
 );

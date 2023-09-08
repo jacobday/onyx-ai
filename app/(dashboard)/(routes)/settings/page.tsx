@@ -3,12 +3,13 @@ import { SubscriptionButton } from "@/components/subscription-button";
 import { checkSubscription } from "@/lib/subscription";
 
 import { Settings } from "lucide-react";
+import styles from "./settings.module.scss";
 
 const SettingsPage = async () => {
   const isPro = await checkSubscription();
 
   return (
-    <div>
+    <div className={styles.settings}>
       <Heading
         title="Settings"
         description="Manage your account settings"

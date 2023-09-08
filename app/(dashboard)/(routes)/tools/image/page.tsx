@@ -27,6 +27,7 @@ import { Card, CardFooter } from "@/components/ui/card";
 import { amountOptions, formSchema, resolutionOptions } from "./constants";
 import { useProModal } from "@/hooks/use-pro-modal";
 import toast from "react-hot-toast";
+import { ChatInput } from "@/components/ChatInput/chat-input";
 
 const ImagePage = () => {
   const proModal = useProModal();
@@ -77,106 +78,78 @@ const ImagePage = () => {
       />
 
       {/* ImagePage Content Container */}
-      <div className="px-4 lg:px-8">
-        {/* Section: Conversation Input */}
-        <section>
-          <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2"
-            >
-              {/* Prompt Input */}
-              <FormField
-                name="prompt"
-                render={({ field }) => (
-                  <FormItem className="col-span-12 lg:col-span-6">
-                    <FormControl className="m-0 p-0">
-                      <Input
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                        disabled={isLoading}
-                        placeholder="A picture of a horse in the Swiss alps"
-                        {...field}
-                      />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-
-              {/* Amount Input */}
-              <FormField
-                name="amount"
-                control={form.control}
-                render={({ field }) => (
-                  <FormItem className="col-span-12 lg:col-span-2">
-                    <Select
-                      disabled={isLoading}
-                      onValueChange={field.onChange}
-                      value={field.value}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        {/* Selected Amount */}
-                        <SelectTrigger>
-                          <SelectValue defaultValue={field.value} />
-                        </SelectTrigger>
-                      </FormControl>
-
-                      {/* Dropdown Options */}
-                      <SelectContent>
-                        {amountOptions.map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
-                            {option.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </FormItem>
-                )}
-              />
-
-              {/* Resolution Input */}
-              <FormField
-                name="resolution"
-                control={form.control}
-                render={({ field }) => (
-                  <FormItem className="col-span-12 lg:col-span-2">
-                    <Select
-                      disabled={isLoading}
-                      onValueChange={field.onChange}
-                      value={field.value}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        {/* Selected Amount */}
-                        <SelectTrigger>
-                          <SelectValue defaultValue={field.value} />
-                        </SelectTrigger>
-                      </FormControl>
-
-                      {/* Dropdown Options */}
-                      <SelectContent>
-                        {resolutionOptions.map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
-                            {option.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </FormItem>
-                )}
-              />
-
-              {/* Form Submit */}
-              <Button
-                className="col-span-12 lg:col-span-2 w-full"
+      <ChatInput
+        placeholder="A picture of a horse in the Swiss alps"
+        form={form}
+        onSubmit={onSubmit}
+        isLoading={isLoading}
+        options={{ inputClass: "col-span-12 lg:col-span-6" }}
+      >
+        {/* Amount Input */}
+        <FormField
+          name="amount"
+          control={form.control}
+          render={({ field }) => (
+            <FormItem className="col-span-12 lg:col-span-2">
+              <Select
                 disabled={isLoading}
+                onValueChange={field.onChange}
+                value={field.value}
+                defaultValue={field.value}
               >
-                Generate
-              </Button>
-            </form>
-          </Form>
-        </section>
+                <FormControl>
+                  {/* Selected Amount */}
+                  <SelectTrigger>
+                    <SelectValue defaultValue={field.value} />
+                  </SelectTrigger>
+                </FormControl>
 
+                {/* Dropdown Options */}
+                <SelectContent>
+                  {amountOptions.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </FormItem>
+          )}
+        />
+
+        {/* Resolution Input */}
+        <FormField
+          name="resolution"
+          control={form.control}
+          render={({ field }) => (
+            <FormItem className="col-span-12 lg:col-span-2">
+              <Select
+                disabled={isLoading}
+                onValueChange={field.onChange}
+                value={field.value}
+                defaultValue={field.value}
+              >
+                <FormControl>
+                  {/* Selected Amount */}
+                  <SelectTrigger>
+                    <SelectValue defaultValue={field.value} />
+                  </SelectTrigger>
+                </FormControl>
+
+                {/* Dropdown Options */}
+                <SelectContent>
+                  {resolutionOptions.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </FormItem>
+          )}
+        />
+      </ChatInput>
+      <div className="px-4 lg:px-8">
         {/* Section: Rendered Images */}
         <section className="space-y-4 mt-4">
           {/* Loading images */}

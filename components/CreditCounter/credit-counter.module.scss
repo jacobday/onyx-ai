@@ -1,0 +1,42 @@
+@use "sass:map";
+@import "@/styles/variables";
+
+.container {
+  height: 100%;
+  background-color: white;
+
+  padding: map-get($map: $spacing, $key: "sm");
+
+  border-radius: map-get($map: $border-radius, $key: "outer");
+  border: $border-width solid $border-color;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .progress {
+    height: 12px;
+    width: 100px;
+  }
+
+  &[data-variant="premium"] {
+    color: white;
+    font-weight: 600;
+
+    background-color: map-get($map: $theme-colors, $key: "primary");
+    background-image: map-get($map: $gradient, $key: "premium");
+
+    outline: 0px solid transparent;
+
+    transition: map-get($map: $transition, $key: "default");
+
+    &:hover {
+      outline: 2px solid map-get($map: $theme-colors, $key: "primary");
+    }
+  }
+}
+
+div.container {
+  padding: 0 1.25em;
+  cursor: default;
+}

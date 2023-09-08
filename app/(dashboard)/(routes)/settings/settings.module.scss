@@ -1,0 +1,7 @@
+@use "sass:map";
+@import "@/styles/variables";
+
+.settings {
+  padding-top: 2rem;
+  padding-left: map-get($map: $width, $key: "taskbar");
+}

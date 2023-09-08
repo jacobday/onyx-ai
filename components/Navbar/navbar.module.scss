@@ -1,0 +1,22 @@
+@use "sass:map";
+@import "@/styles/variables";
+
+.navbar {
+  height: map-get($map: $height, $key: "navbar");
+
+  padding: 1em;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .credit {
+    height: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .credit {
+    padding-left: map-get($map: $width, $key: "listview");
+  }
+}

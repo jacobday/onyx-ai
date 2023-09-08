@@ -1,0 +1,37 @@
+@use "sass:map";
+@import "@/styles/variables";
+
+.form {
+  // width: 100%;
+
+background-color: map-get($map: $bg-variants, $key: "primary");
+
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1em;
+
+  padding: map-get($map: $spacing, $key: "sm");
+
+  border: $border-width solid $border-color;
+  border-radius: map-get($map: $border-radius, $key: "inner");
+
+  position: absolute;
+  right: map-get($map: $spacing, $key: "sm");
+  bottom: map-get($map: $spacing, $key: "sm");
+  left: map-get($map: $spacing, $key: "sm");
+
+  input {
+    background-color: transparent;
+    border: none;
+
+    padding-left: map-get($map: $spacing, $key: "sm");
+
+    text-overflow: ellipsis;
+
+    &:focus-visible {
+    box-shadow: none;
+  }
+
+  
+  }
+}

@@ -6,7 +6,7 @@
     padding-left: map-get($map: $width, $key: "taskbar");
   
     .content {
-      padding-left: map-get($map: $width, $key: "listview");
+      padding-left: calc( map-get($map: $width, $key: "listview") + map-get($map: $spacing, $key: "sm") );
     }
   }
 }

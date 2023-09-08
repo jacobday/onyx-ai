@@ -22,6 +22,7 @@ import { cn } from "@/lib/utils";
 import { formSchema } from "./constants";
 import { useProModal } from "@/hooks/use-pro-modal";
 import { toast } from "react-hot-toast";
+import { ChatInput } from "@/components/ChatInput/chat-input";
 
 const ConversationPage = () => {
   const proModal = useProModal();
@@ -64,7 +65,7 @@ const ConversationPage = () => {
   };
 
   return (
-    <main>
+    <>
       {/* ConversationPage Heading */}
       <Heading
         title="Conversation"
@@ -75,40 +76,17 @@ const ConversationPage = () => {
       />
 
       {/* ConversationPage Content Container */}
-      <div className="px-4 lg:px-8">
+      <div
+      // className="px-4 lg:px-8"
+      >
         {/* Section: Conversation Input */}
         <section>
-          <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2"
-            >
-              {/* Form Input*/}
-              <FormField
-                name="prompt"
-                render={({ field }) => (
-                  <FormItem className="col-span-12 lg:col-span-10">
-                    <FormControl className="m-0 p-0">
-                      <Input
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                        disabled={isLoading}
-                        placeholder="What do you think the world will look like in 300 years?"
-                        {...field}
-                      />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-
-              {/* Form Submit */}
-              <Button
-                className="col-span-12 lg:col-span-2 w-full"
-                disabled={isLoading}
-              >
-                Generate
-              </Button>
-            </form>
-          </Form>
+          <ChatInput
+            placeholder="What do you think the world will look like in 300 years?"
+            onSubmit={onSubmit}
+            isLoading={isLoading}
+            form={form}
+          />
         </section>
 
         {/* Section: Conversation History */}
@@ -134,7 +112,7 @@ const ConversationPage = () => {
                   "p-8 w-full items-start gap-x-8 rounded-lg",
                   message.role === "user"
                     ? "bg-white border border-black/10"
-                    : "bg-muted",
+                    : "bg-muted"
                 )}
               >
                 {/* Message sender & content */}
@@ -145,7 +123,7 @@ const ConversationPage = () => {
           </div>
         </section>
       </div>
-    </main>
+    </>
   );
 };
 

@@ -3,12 +3,10 @@
 import { UserButton } from "@clerk/clerk-react";
 
 import MobileSidebar from "../MobileSidebar/mobile-sidebar";
-import { getApiLimitCount } from "@/lib/api-limit";
-import styles from "./navbar.module.scss";
 import { CreditCounter } from "../CreditCounter/credit-counter";
 import { useMobileSidebar } from "@/hooks/use-mobile-sidebar";
-import { Button } from "../ui/button";
-import { Menu } from "lucide-react";
+
+import styles from "./navbar.module.scss";
 
 interface NavbarProps {
   apiLimitCount: number;

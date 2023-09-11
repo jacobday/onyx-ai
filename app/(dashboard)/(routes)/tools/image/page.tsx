@@ -23,8 +23,9 @@ import {
 } from "@/components/ui/select";
 import { FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Card, CardFooter } from "@/components/ui/card";
-import { useProModal } from "@/hooks/use-pro-modal";
 import { ChatInput } from "@/components/ChatInput/chat-input";
+
+import { useProModal } from "@/hooks/use-pro-modal";
 
 import { amountOptions, formSchema, resolutionOptions } from "./constants";
 

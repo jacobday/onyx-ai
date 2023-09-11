@@ -3,13 +3,11 @@ import styles from "./loader.module.scss";
 
 const Loader = () => {
   return (
-    <>
-      <ChatBubble variant={"bot"}>
-        <div className={styles.dot}></div>
-        <div className={styles.dot}></div>
-        <div className={styles.dot}></div>
-      </ChatBubble>
-    </>
+    <ChatBubble variant={"bot"}>
+      <div className={styles.dot}></div>
+      <div className={styles.dot}></div>
+      <div className={styles.dot}></div>
+    </ChatBubble>
   );
 };
 

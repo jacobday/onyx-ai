@@ -1,12 +1,8 @@
 "use client";
 
-import Image from "next/image";
-
-import ListView from "../ListView/listview";
 import styles from "./taskbar.module.scss";
 import Link from "next/link";
-import { useState } from "react";
-import { Gauge, Settings, Shield, User } from "lucide-react";
+import { Gauge, User } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 
 const navItems = [
@@ -31,7 +27,6 @@ interface TaskBarProps {
 const TaskBar = ({ isPro }: TaskBarProps) => {
   const router = useRouter();
   const pathname = usePathname();
-  const [activeTab, setActiveTab] = useState("/tools");
 
   return (
     <div className={styles.taskbar}>

@@ -1,12 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Card, CardContent } from "../ui/card";
+
 import { MAX_FREE_CREDITS } from "@/constants";
-import { Progress } from "../ui/progress";
-import { Button } from "../ui/button";
-import { Zap } from "lucide-react";
 import { useProModal } from "@/hooks/use-pro-modal";
+import { Progress } from "../ui/progress";
 
 import styles from "./credit-counter.module.scss";
 

@@ -13,14 +13,12 @@ import * as z from "zod";
 import { Heading } from "@/components/heading";
 import { Empty } from "@/components/empty";
 import Loader from "@/components/chat/Loader/loader";
-import { UserAvatar } from "@/components/chat/user-avatar";
-import { BotAvatar } from "@/components/chat/bot-avatar";
-import { cn } from "@/lib/utils";
-import { useProModal } from "@/hooks/use-pro-modal";
 import { ChatInput } from "@/components/ChatInput/chat-input";
+import ChatBubble from "@/components/chat/ChatBubble/chat-bubble";
+
+import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema } from "./constants";
-import ChatBubble from "@/components/chat/ChatBubble/chat-bubble";
 
 const ConversationPage = () => {
   const proModal = useProModal();

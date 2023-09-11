@@ -6,19 +6,17 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import * as z from "zod";
 
 import { Heading } from "@/components/heading";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Empty } from "@/components/empty";
-import Loader from "@/components/loader";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import Loader from "@/components/chat/Loader/loader";
+import { ChatInput } from "@/components/ChatInput/chat-input";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema } from "./constants";
-import { useProModal } from "@/hooks/use-pro-modal";
-import toast from "react-hot-toast";
-import { ChatInput } from "@/components/ChatInput/chat-input";
+import ChatBubble from "@/components/chat/ChatBubble/chat-bubble";
 
 const MusicPage = () => {
   const proModal = useProModal();
@@ -76,21 +74,23 @@ const MusicPage = () => {
 
         {/* Section: Generated Music */}
         <section className="space-y-4 mt-4">
-          {/* Loading music */}
-          {isLoading && (
-            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
-              <Loader caption="Hang tight, this might take a minute..." />
-            </div>
-          )}
-
           {/* No music generated */}
           {!music && !isLoading && <Empty label="No music generated." />}
 
           {/* Generated Music Player */}
           {music && (
-            <audio controls className="w-full mt-8">
-              <source src={music} />
-            </audio>
+            <ChatBubble variant={"bot"}>
+              <audio controls className="w-full">
+                <source src={music} />
+              </audio>
+            </ChatBubble>
+          )}
+
+          {/* Loading music */}
+          {isLoading && (
+            <div className="w-full">
+              <Loader />
+            </div>
           )}
         </section>
       </div>

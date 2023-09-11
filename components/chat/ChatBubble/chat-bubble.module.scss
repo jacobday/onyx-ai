@@ -1,0 +1,58 @@
+@use "sass:map";
+@import "@/styles/variables";
+
+$bot-color: map-get(
+  $map: $bg-variants,
+  $key: "primary",
+);
+$user-color: lighten(
+  $color:
+    map-get(
+      $map: $theme-colors,
+      $key: "primary",
+    ),
+  $amount: 2,
+);
+
+.container {
+  display: flex;
+  align-items: flex-end;
+
+  gap: 7px;
+
+  &[data-variant="user"] {
+    flex-direction: row-reverse;
+  }
+}
+
+.bubble {
+  width: fit-content;
+  max-width: 85%;
+  color: black;
+  background-color: $bot-color;
+
+  padding: 0.5em 1em;
+
+  border: 1px solid darken($color: $bot-color, $amount: 2);
+  border-radius: map-get($map: $border-radius, $key: "outer");
+
+  display: inline-block;
+
+  &[data-variant="user"] {
+    color: white;
+    background-color: $user-color;
+
+    border-color: darken($color: $user-color, $amount: 2);
+    border-bottom-right-radius: 0;
+  }
+
+  &[data-variant="bot"] {
+    border-bottom-left-radius: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .bubble {
+    max-width: 60%;
+  }
+}

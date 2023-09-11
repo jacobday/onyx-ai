@@ -24,7 +24,11 @@
 
     border-radius: map-get($map: $border-radius, $key: "outer");
 
+    // TODO fix overlap with input
+    padding-bottom: calc(60px + map-get($map: $spacing, $key: "sm"));
+
     overflow: hidden;
+    overflow-y: scroll;
   }
 }
 

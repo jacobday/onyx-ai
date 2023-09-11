@@ -7,13 +7,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import * as z from "zod";
 
 import { Heading } from "@/components/heading";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Empty } from "@/components/empty";
-import Loader from "@/components/loader";
+import Loader from "@/components/chat/Loader/loader";
 import {
   Select,
   SelectContent,
@@ -21,13 +21,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Card, CardFooter } from "@/components/ui/card";
+import { useProModal } from "@/hooks/use-pro-modal";
+import { ChatInput } from "@/components/ChatInput/chat-input";
 
 import { amountOptions, formSchema, resolutionOptions } from "./constants";
-import { useProModal } from "@/hooks/use-pro-modal";
-import toast from "react-hot-toast";
-import { ChatInput } from "@/components/ChatInput/chat-input";
 
 const ImagePage = () => {
   const proModal = useProModal();
@@ -149,16 +148,10 @@ const ImagePage = () => {
           )}
         />
       </ChatInput>
+
       <div className="px-4 lg:px-8">
         {/* Section: Rendered Images */}
         <section className="space-y-4 mt-4">
-          {/* Loading images */}
-          {isLoading && (
-            <div className="p-20">
-              <Loader />
-            </div>
-          )}
-
           {/* No image history */}
           {images.length === 0 && !isLoading && (
             <Empty label="No images generated." />
@@ -186,6 +179,13 @@ const ImagePage = () => {
                 </CardFooter>
               </Card>
             ))}
+
+            {/* Loading images */}
+            {isLoading && (
+              <div className="w-full">
+                <Loader />
+              </div>
+            )}
           </div>
         </section>
       </div>

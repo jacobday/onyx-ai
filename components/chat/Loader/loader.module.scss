@@ -1,0 +1,47 @@
+@use "sass:map";
+@import "@/styles/variables";
+
+.dot {
+  height: 7px;
+  aspect-ratio: 1/1;
+  background-color: darken(
+    $color: map-get($map: $bg-variants, $key: "primary"),
+    $amount: 20
+  );
+
+  margin-right: 4px;
+
+  border-radius: 50%;
+
+  display: inline-block;
+
+  animation: typing 1.8s infinite ease-in-out;
+  opacity: 0.7;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @for $i from 1 through 3 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.1}s;
+    }
+  }
+}
+
+@keyframes typing {
+  0% {
+    transform: translateY(0px);
+    opacity: 0.7;
+  }
+
+  28% {
+    transform: translateY(-7px);
+    opacity: 0.4;
+  }
+
+  44% {
+    transform: translateY(0px);
+    opacity: 0.2;
+  }
+}

@@ -14,9 +14,9 @@ import { Heading } from "@/components/heading";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Empty } from "@/components/empty";
-import Loader from "@/components/loader";
-import { UserAvatar } from "@/components/user-avatar";
-import { BotAvatar } from "@/components/bot-avatar";
+import Loader from "@/components/chat/Loader/loader";
+import { UserAvatar } from "@/components/chat/user-avatar";
+import { BotAvatar } from "@/components/chat/bot-avatar";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { cn } from "@/lib/utils";
 
@@ -24,6 +24,7 @@ import { formSchema } from "./constants";
 import { useProModal } from "@/hooks/use-pro-modal";
 import toast from "react-hot-toast";
 import { ChatInput } from "@/components/ChatInput/chat-input";
+import ChatBubble from "@/components/chat/ChatBubble/chat-bubble";
 
 const CodePage = () => {
   const proModal = useProModal();
@@ -88,32 +89,18 @@ const CodePage = () => {
 
         {/* Section: Conversation History */}
         <section className="space-y-4 mt-4">
-          {/* Loading conversation */}
-          {isLoading && (
-            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
-              <Loader />
-            </div>
-          )}
-
           {/* No conversation history */}
           {messages.length === 0 && !isLoading && (
             <Empty label="No conversation started." />
           )}
 
           {/* Conversation history */}
-          <div className="flex flex-col-reverse gap-y-4">
+          <div className="flex flex-col gap-y-4">
             {messages.map((message) => (
-              <div
+              <ChatBubble
                 key={message.content}
-                className={cn(
-                  "p-8 w-full items-start gap-x-8 rounded-lg",
-                  message.role === "user"
-                    ? "bg-white border border-black/10"
-                    : "bg-muted",
-                )}
+                variant={message.role === "user" ? "user" : "bot"}
               >
-                {/* Message sender & content */}
-                {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
                 <ReactMarkdown
                   className="text-sm overflow-hidden leading-7"
                   components={{
@@ -129,8 +116,15 @@ const CodePage = () => {
                 >
                   {message.content || ""}
                 </ReactMarkdown>
-              </div>
+              </ChatBubble>
             ))}
+
+            {/* Loading conversation */}
+            {isLoading && (
+              <div className="w-full">
+                <Loader />
+              </div>
+            )}
           </div>
         </section>
       </div>

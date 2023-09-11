@@ -7,22 +7,20 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { ChatCompletionRequestMessage } from "openai";
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 import * as z from "zod";
 
 import { Heading } from "@/components/heading";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Empty } from "@/components/empty";
-import Loader from "@/components/loader";
-import { UserAvatar } from "@/components/user-avatar";
-import { BotAvatar } from "@/components/bot-avatar";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import Loader from "@/components/chat/Loader/loader";
+import { UserAvatar } from "@/components/chat/user-avatar";
+import { BotAvatar } from "@/components/chat/bot-avatar";
 import { cn } from "@/lib/utils";
+import { useProModal } from "@/hooks/use-pro-modal";
+import { ChatInput } from "@/components/ChatInput/chat-input";
 
 import { formSchema } from "./constants";
-import { useProModal } from "@/hooks/use-pro-modal";
-import { toast } from "react-hot-toast";
-import { ChatInput } from "@/components/ChatInput/chat-input";
+import ChatBubble from "@/components/chat/ChatBubble/chat-bubble";
 
 const ConversationPage = () => {
   const proModal = useProModal();
@@ -76,9 +74,7 @@ const ConversationPage = () => {
       />
 
       {/* ConversationPage Content Container */}
-      <div
-      // className="px-4 lg:px-8"
-      >
+      <div>
         {/* Section: Conversation Input */}
         <section>
           <ChatInput
@@ -91,35 +87,28 @@ const ConversationPage = () => {
 
         {/* Section: Conversation History */}
         <section className="space-y-4 mt-4">
-          {/* Loading conversation */}
-          {isLoading && (
-            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
-              <Loader />
-            </div>
-          )}
-
           {/* No conversation history */}
           {messages.length === 0 && !isLoading && (
             <Empty label="No conversation started." />
           )}
 
           {/* Conversation history */}
-          <div className="flex flex-col-reverse gap-y-4">
+          <div className="flex flex-col gap-y-4">
             {messages.map((message) => (
-              <div
+              <ChatBubble
                 key={message.content}
-                className={cn(
-                  "p-8 w-full items-start gap-x-8 rounded-lg",
-                  message.role === "user"
-                    ? "bg-white border border-black/10"
-                    : "bg-muted",
-                )}
+                variant={message.role === "user" ? "user" : "bot"}
               >
-                {/* Message sender & content */}
-                {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
                 <p className="text-sm">{message.content}</p>
-              </div>
+              </ChatBubble>
             ))}
+
+            {/* Loading conversation */}
+            {isLoading && (
+              <div className="w-full">
+                <Loader />
+              </div>
+            )}
           </div>
         </section>
       </div>

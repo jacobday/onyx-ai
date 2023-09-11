@@ -6,19 +6,17 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import * as z from "zod";
 
 import { Heading } from "@/components/heading";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Empty } from "@/components/empty";
-import Loader from "@/components/loader";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import Loader from "@/components/chat/Loader/loader";
+import { ChatInput } from "@/components/ChatInput/chat-input";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema } from "./constants";
-import { useProModal } from "@/hooks/use-pro-modal";
-import toast from "react-hot-toast";
-import { ChatInput } from "@/components/ChatInput/chat-input";
+import ChatBubble from "@/components/chat/ChatBubble/chat-bubble";
 
 const VideoPage = () => {
   const proModal = useProModal();
@@ -76,24 +74,26 @@ const VideoPage = () => {
 
         {/* Section: Generated Video */}
         <section className="space-y-4 mt-4">
-          {/* Loading video */}
-          {isLoading && (
-            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
-              <Loader caption="Hang tight, this might take a minute..." />
-            </div>
-          )}
-
           {/* No video generated */}
           {!video && !isLoading && <Empty label="No video generated." />}
 
           {/* Generated Video Player */}
           {video && (
-            <video
-              className="w-full aspect-video mt-8 rounded-lg border bg-black"
-              controls
-            >
-              <source src={video} />
-            </video>
+            <ChatBubble variant={"bot"}>
+              <video
+                className="w-full aspect-video rounded-lg border bg-black"
+                controls
+              >
+                <source src={video} />
+              </video>
+            </ChatBubble>
+          )}
+
+          {/* Loading video */}
+          {isLoading && (
+            <div className="w-full">
+              <Loader />
+            </div>
           )}
         </section>
       </div>

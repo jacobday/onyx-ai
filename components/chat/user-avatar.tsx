@@ -1,11 +1,14 @@
 import { useUser } from "@clerk/nextjs";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 export const UserAvatar = () => {
   const { user } = useUser();
 
   return (
-    <Avatar className="h-8 w-8">
+    <Avatar
+      title={user?.fullName || "You"}
+      className="h-8 w-8 inline-block align-middle z-[-1]"
+    >
       <AvatarImage src={user?.imageUrl} />
       <AvatarFallback>
         {user?.firstName?.charAt(0)}

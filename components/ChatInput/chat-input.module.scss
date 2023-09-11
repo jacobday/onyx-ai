@@ -20,6 +20,8 @@
   bottom: map-get($map: $spacing, $key: "sm");
   left: map-get($map: $spacing, $key: "sm");
 
+  z-index: 20;
+
   input {
     background-color: transparent;
     border: none;

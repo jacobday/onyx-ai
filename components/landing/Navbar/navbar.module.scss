@@ -1,0 +1,56 @@
+@use "sass:map";
+@import "@/styles/variables";
+
+.logo {
+  display: flex;
+  align-items: center;
+
+  h1 {
+    font-family: map-get($map: $theme-fonts, $key: "logo"), sans-serif;
+    font-size: 2.25rem;
+    font-weight: 600;
+    letter-spacing: -0.75px;
+  }
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+
+  button {
+    color: white;
+    font-weight: 600;
+
+    background-color: transparent;
+
+    border: none;
+    border-radius: 20px;
+
+    outline: 2px solid transparent;
+
+    padding: 0.5em 1em;
+
+    transition: map-get($map: $transition, $key: "default");
+
+    &.signup {
+      color: #121826;
+      background-color: white;
+      
+      &:hover,
+      &:active,
+      &:focus {
+        color: white;
+        background-color: map-get($map: $theme-colors, $key: "primary");
+      }
+    }
+
+    &.login {
+      &:hover,
+      &:active,
+      &:focus {
+        outline: 2px solid map-get($map: $theme-colors, $key: "primary");
+      }
+    }
+  }
+}

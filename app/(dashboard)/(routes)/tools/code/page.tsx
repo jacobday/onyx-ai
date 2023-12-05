@@ -14,7 +14,7 @@ import * as z from "zod";
 import { ChatInput } from "@/components/ChatInput/chat-input";
 import ChatBubble from "@/components/chat/ChatBubble/chat-bubble";
 import { Heading } from "@/components/heading";
-import { Empty } from "@/components/empty";
+import { Empty } from "@/components/chat/empty";
 import Loader from "@/components/chat/Loader/loader";
 
 import { useProModal } from "@/hooks/use-pro-modal";

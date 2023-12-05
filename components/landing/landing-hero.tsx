@@ -3,7 +3,7 @@
 import { useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 import TypewriterComponent from "typewriter-effect";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 export const LandingHero = () => {
   const { isSignedIn } = useAuth();
@@ -32,9 +32,9 @@ export const LandingHero = () => {
       </div>
 
       {/* Subheader */}
-      <div className="text-sm md:text-xl font-light text-zinc-400">
+      {/* <div className="text-sm md:text-xl font-light text-zinc-400">
         Create content faster than ever before.
-      </div>
+      </div> */}
 
       {/* Get Started Button */}
       <div>

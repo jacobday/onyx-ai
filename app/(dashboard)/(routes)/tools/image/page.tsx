@@ -12,7 +12,7 @@ import * as z from "zod";
 
 import { Heading } from "@/components/heading";
 import { Button } from "@/components/ui/button";
-import { Empty } from "@/components/empty";
+import { Empty } from "@/components/chat/empty";
 import Loader from "@/components/chat/Loader/loader";
 import {
   Select,

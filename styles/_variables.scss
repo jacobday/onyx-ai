@@ -1,3 +1,6 @@
+// Google fonts
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan&display=swap');
+
 // Theme colors
 $theme-colors: (
   "primary": #7c8af7,
@@ -6,6 +9,11 @@ $theme-colors: (
 $bg-variants: (
   "primary": #f7f8fd,
   "secondary": #fff,
+);
+
+// Fonts
+$theme-fonts: (
+  "logo": "Kodchasan",
 );
 
 // Borders
@@ -17,7 +25,7 @@ $border-radius: (
 $border-color: #e8eaf2;
 $border-width: 1px;
 
-// Spacing
+// Padding & margins
 $spacing: (
   "sm": 0.5em,
 );

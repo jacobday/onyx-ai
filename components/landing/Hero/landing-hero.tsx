@@ -1,20 +1,13 @@
 "use client";
 
-import { useAuth } from "@clerk/nextjs";
-
-import { cn } from "@/lib/utils";
 import styles from "./hero.module.scss";
 import { Gradient } from "./Gradient";
 import { useEffect } from "react";
 
 export const LandingHero = () => {
-  const { isSignedIn } = useAuth();
-
   useEffect(() => {
     const gradient = new Gradient();
     gradient.initGradient("#gradient-canvas");
-    // gradient.connect();
-    // gradient.init();
   }, []);
 
   return (

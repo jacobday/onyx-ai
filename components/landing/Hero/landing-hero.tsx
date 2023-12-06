@@ -20,7 +20,9 @@ export const LandingHero = () => {
 
         <div className={styles.textContainer}>
           <h1 className={styles.heading}>Onyx</h1>
-          <h2>All of your favorite AI tools in one unified platform.</h2>
+          <h2>
+            All of your favorite AI tools under a single unified platform.
+          </h2>
         </div>
       </div>
     </section>

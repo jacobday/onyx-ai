@@ -1,34 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[![Athlos Banner](https://i.imgur.com/hNnihHZ.png)](https://onyx.jacob.day/)
 
-## Getting Started
+<h2 align="center">Onyx AI Dashboard</h2>
 
-First, run the development server:
+<div align="center">
+  
+<h4>All of your favorite AI tools under a single unified platform.</h4>
+  
+  <p>
+  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+  <a href="https://github.com/jacobday/onyx-ai/releases/latest">
+    <img alt="latest release" src="https://badgen.net/github/release/jacobday/onyx-ai">
+  </a>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  <a href="https://github.com/prettier/prettier">
+    <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
+  </a>
+  </p>
+  
+  
+  <div>
+    <a href="#features">Features</a> •
+    <a href="#video-demo">Video Demo</a> 
+    
+  </div>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+</div>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Features
 
-## Learn More
+- User Authentication
+  - Secure login and sign-up functionality provided by [Clerk](https://clerk.com).
+- Onyx Credits System
+  - New users receive 5 free credits upon sign-up.
+  - Each tool consumes 1 credit, no matter the complexity of your query.
+- Subscription Plans
+  - Access unlimited credits with a subscription plan, managed through [Stripe](https://stripe.com).
+- Machine Learning Tools
+  - A variety of tools powered by leading machine learning platforms:
+    - **OpenAI**: Offers conversation, image, and code generation tools.
+    - **Replicate**: Provides tools for video and music generation.
+- Favorites Feature
+  - Users can pin their favorite tools for quick and easy access.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Video Demo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+&copy; 2023 Jacob Day | All rights reserved

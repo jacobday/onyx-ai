@@ -597,12 +597,12 @@ class Gradient {
       }),
       e(this, "play", () => {
         requestAnimationFrame(this.animate), (this.conf.playing = true);
-      }),
-      e(this, "initGradient", (selector) => {
-        this.el = document.querySelector(selector);
-        this.connect();
-        return this;
       });
+  }
+  initGradient(selector) {
+    this.el = document.querySelector(selector);
+    this.connect();
+    return this;
   }
   async connect() {
     (this.shaderFiles = {

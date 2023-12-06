@@ -14,7 +14,7 @@ export const LandingNavbar = () => {
     <nav
       className={cn(
         "p-4 bg-transparent flex items-center justify-between",
-        styles.nav
+        styles.nav,
       )}
     >
       <div className={styles.container}>

@@ -55,18 +55,15 @@
   --gradient-color-4: #e2e2e2;
 }
 
-
-
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .textContainer {
-
     h1 {
       font-size: 130px;
     }
-  
+
     h2 {
-  font-size: 28px;
+      font-size: 28px;
     }
   }
 }

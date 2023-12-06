@@ -5,39 +5,49 @@ import Link from "next/link";
 import { useAuth } from "@clerk/nextjs";
 
 import styles from "./navbar.module.scss";
+import { cn } from "@/lib/utils";
 
 export const LandingNavbar = () => {
   const { isSignedIn } = useAuth();
 
   return (
-    <nav className="p-4 bg-transparent flex items-center justify-between">
-      {/* Onyx Logo */}
-      <Link href="/" className={styles.logo}>
-        <div className="relative h-8 w-8 mr-2">
-          <Image fill alt="Logo" src="/logo.svg" />
+    <nav
+      className={cn(
+        "p-4 bg-transparent flex items-center justify-between",
+        styles.nav
+      )}
+    >
+      <div className={styles.container}>
+        {/* Onyx Logo */}
+        <Link href="/" className={styles.logo}>
+          <div className="relative h-8 w-8 mr-2">
+            <Image fill alt="Logo" src="/logo-white.svg" />
+          </div>
+
+          {/* <h1 className="text-2xl font-bold text-white">Onyx</h1> */}
+        </Link>
+
+        {/* Links */}
+        <div className={styles.links}>
+          <Link href={isSignedIn ? "/tools/conversation" : "/sign-in"}>
+            <button>Dashboard</button>
+          </Link>
+
+          <Link href="https://www.youtube.com/@jacobmday" target="_blank">
+            <button>Demo Video</button>
+          </Link>
         </div>
 
-        <h1 className="text-2xl font-bold text-white">Onyx</h1>
-      </Link>
-
-      <div className={styles.account}>
-        {!isSignedIn && (
-          <>
-            <Link href="/sign-in">
-              <button className={styles.login}>Login</button>
-            </Link>
-
-            <Link href="/sign-up">
-              <button className={styles.signup}>Sign Up</button>
-            </Link>
-          </>
-        )}
-
-        {isSignedIn && (
-          <Link href="/tools/conversation">
-            <button className={styles.signup}>Dashboard</button>
+        {/* Account Actions */}
+        <div className={styles.account}>
+          <Link href={isSignedIn ? "/tools/conversation" : "/sign-in"}>
+            <button className={styles.login}>Login</button>
           </Link>
-        )}
+
+          <Link href={isSignedIn ? "/tools/conversation" : "/sign-up"}>
+            <button className={styles.signup}>Sign up</button>
+          </Link>
+        </div>
       </div>
     </nav>
   );

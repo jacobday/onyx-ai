@@ -1,0 +1,11 @@
+@use "sass:map";
+@import "@/styles/variables";
+
+.landing {
+  min-height: 100vh;
+  width: 100vw;
+
+  background-color: map-get($map: $bg-variants, $key: "primary");
+
+  position: relative;
+}

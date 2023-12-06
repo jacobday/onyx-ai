@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@100,800&display=swap");
+
+.hero {
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.textContainer {
+  font-family: "Mulish", sans-serif;
+  line-height: 1;
+
+  margin-top: 20vh;
+  padding: 2em;
+
+  h1,
+  h2 {
+    position: relative;
+  }
+
+  h1 {
+    color: black;
+    font-size: 90px;
+    font-weight: 800;
+
+    letter-spacing: -0.35rem;
+  }
+
+  h2 {
+    color: rgb(41, 41, 41);
+    font-size: 22px;
+    font-weight: 100;
+
+    margin-top: 15px;
+  }
+}
+
+.gradient {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.gradient canvas {
+  width: 100%;
+  height: 100%;
+
+  --gradient-color-1: #ef008f;
+  --gradient-color-2: #6ec3f4;
+  --gradient-color-3: #7038ff;
+  --gradient-color-4: #e2e2e2;
+}
+
+
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .textContainer {
+
+    h1 {
+      font-size: 130px;
+    }
+  
+    h2 {
+  font-size: 28px;
+    }
+  }
+}
